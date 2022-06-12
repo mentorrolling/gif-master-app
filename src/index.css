@@ -5,10 +5,42 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121212;
+  background-color: rgba(33, 37, 41);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.input_search {
+  padding: 10px;
+}
+
+.galeria {
+  /* margin: 1rem auto; */
+  width: 100%;
+  /* max-width: 960px; */
+  column-count: 4;
+}
+.img_galeria {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+/* Móviles en horizontal o tablets en vertical */
+
+@media (max-width: 767px) {
+  .galeria {
+    columns: 2;
+  }
+}
+
+/* Móviles en vertical */
+
+@media (max-width: 480px) {
+  .galeria {
+    columns: 1;
+  }
 }
