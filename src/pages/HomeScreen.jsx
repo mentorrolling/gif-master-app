@@ -11,9 +11,9 @@ const HomeScreen = () => {
       console.log(response);
       let arreglo = [];
       response.forEach((element) => {
-        const { title } = element;
+        const { title, id } = element;
         const { url } = element.images.original;
-        arreglo.push({ title, url });
+        arreglo.push({ id, title, url });
       });
       setGifs([...arreglo]);
 
@@ -50,9 +50,9 @@ const HomeScreen = () => {
         </div>
       </div>
       <div className=" galeria">
-        {gifs.map((gif, index) => (
+        {gifs.map((gif) => (
           // <div className="col">
-          <div className="mb-3" key={index}>
+          <div className="mb-3" key={gif.id}>
             <img className="img_galeria" src={gif.url} alt={gif.title} />
           </div>
 

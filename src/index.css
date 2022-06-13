@@ -29,6 +29,20 @@ code {
   border-radius: 10%;
 }
 
+.img_paginas {
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.img_col {
+  width: 208px;
+  height: 208px;
+}
+.texto_small {
+  font-size: 14px;
+}
+
 /* Móviles en horizontal o tablets en vertical */
 
 @media (max-width: 767px) {
