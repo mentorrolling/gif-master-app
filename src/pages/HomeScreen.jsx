@@ -25,18 +25,6 @@ const HomeScreen = () => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control input_search"
-              placeholder="Search all the Gif"
-              aria-label="Recipient's username"
-              aria-describedby="button-addon2"
-            />
-            <button className="btn btn-search" type="button" id="button-addon2">
-              <i className="fa fa-search fa-2x" aria-hidden="true"></i>
-            </button>
-          </div>
           <div className="w-100">
             <img className="img_banner" src={banner} alt="banner" />
           </div>
@@ -52,7 +40,7 @@ const HomeScreen = () => {
       <div className=" galeria">
         {gifs.map((gif) => (
           // <div className="col">
-          <div className="mb-3" key={gif.id}>
+          <div className="mb-3 animate__animated animate__fadeIn" key={gif.id}>
             <img className="img_galeria" src={gif.url} alt={gif.title} />
           </div>
 
