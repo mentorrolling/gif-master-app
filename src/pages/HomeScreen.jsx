@@ -43,12 +43,9 @@ const HomeScreen = () => {
         </div>
       ) : (
         <div className=" galeria">
-          {gifs.map((gif) => (
+          {gifs.map((gif, index) => (
             // <div className="col">
-            <div
-              className="mb-3 animate__animated animate__fadeIn"
-              key={gif.id}
-            >
+            <div className="mb-3 animate__animated animate__fadeIn" key={index}>
               <img className="img_galeria" src={gif.url} alt={gif.title} />
             </div>
 

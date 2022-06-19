@@ -11,7 +11,7 @@ const GifCards = ({ gifs, categoria, showMore }) => {
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {gifs.map((gif) => (
               <div className="col" key={gif.id}>
-                <div className="card h-100 rounded-3">
+                <div className="card d-block h-100 rounded-3">
                   <Link to={`/gif/${gif.id}`}>
                     <img
                       src={gif.url}

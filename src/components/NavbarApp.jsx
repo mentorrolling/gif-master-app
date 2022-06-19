@@ -28,17 +28,21 @@ const NavbarApp = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/reactions">
+              <NavLink
+                className="nav-link"
+                aria-current="page"
+                to="/category/reactions"
+              >
                 Reactions
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/entertainment">
+              <NavLink className="nav-link" to="/category/entertainment">
                 Entertainment
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="sports">
+              <NavLink className="nav-link" to="category/sports">
                 Sports
               </NavLink>
             </li>
