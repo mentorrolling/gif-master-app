@@ -43,6 +43,16 @@ code {
   font-size: 14px;
 }
 
+.col-fixed {
+  position: fixed;
+}
+
+.img-avatar {
+  /* width: 100%; */
+  width: 50;
+  height: 50;
+}
+
 /* Móviles en horizontal o tablets en vertical */
 
 @media (max-width: 767px) {

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import GifCards from "../components/GifCards";
 import InfoCategory from "../components/InfoCategory";
-import { getGifSearch } from "../helpers/fetchApi";
+import useCategory from "../hooks/useCategory";
+// import { getGifSearch } from "../helpers/fetchApi";
 
 const SportsScreen = () => {
-  const [gifs, setGifs] = useState([]);
+  // const [gifs, setGifs] = useState([]);
   const datos = {
     categoria: "Sports",
     imagen:
@@ -12,24 +13,26 @@ const SportsScreen = () => {
     texto:
       "Your go-to for any and all sports GIFs! LeBron, Ronaldo, Gronk, Serena...We’ve got them all!",
   };
-  useEffect(() => {
-    getGifSearch(datos.categoria).then((response) => {
-      console.log(response);
-      let arreglo = [];
-      response.forEach((element) => {
-        const { title, id } = element;
-        const { url } = element.images.original;
-        arreglo.push({ id, title, url });
-      });
-      setGifs([...arreglo]);
-    });
-  }, []);
+
+  const { gifs, showMore } = useCategory(datos);
+  // useEffect(() => {
+  //   getGifSearch(datos.categoria).then((response) => {
+  //     console.log(response);
+  //     let arreglo = [];
+  //     response.forEach((element) => {
+  //       const { title, id } = element;
+  //       const { url } = element.images.original;
+  //       arreglo.push({ id, title, url });
+  //     });
+  //     setGifs([...arreglo]);
+  //   });
+  // }, []);
 
   return (
     <div className="container">
       <div className="row">
         <InfoCategory datos={datos} />
-        <GifCards gifs={gifs} categoria={datos.categoria} />
+        <GifCards gifs={gifs} categoria={datos.categoria} showMore={showMore} />
       </div>
     </div>
   );

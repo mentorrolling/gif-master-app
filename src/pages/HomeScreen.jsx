@@ -8,7 +8,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     getGifTrending().then((response) => {
-      console.log(response);
+      // console.log(response);
       let arreglo = [];
       response.forEach((element) => {
         const { title, id } = element;
@@ -37,16 +37,25 @@ const HomeScreen = () => {
           </h3>
         </div>
       </div>
-      <div className=" galeria">
-        {gifs.map((gif) => (
-          // <div className="col">
-          <div className="mb-3 animate__animated animate__fadeIn" key={gif.id}>
-            <img className="img_galeria" src={gif.url} alt={gif.title} />
-          </div>
+      {loading ? (
+        <div className="col-6 offset-3">
+          <h3 className="text-white text-center">Cargando...</h3>
+        </div>
+      ) : (
+        <div className=" galeria">
+          {gifs.map((gif) => (
+            // <div className="col">
+            <div
+              className="mb-3 animate__animated animate__fadeIn"
+              key={gif.id}
+            >
+              <img className="img_galeria" src={gif.url} alt={gif.title} />
+            </div>
 
-          // </div>
-        ))}
-      </div>
+            // </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

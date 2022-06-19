@@ -1,0 +1,88 @@
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getGifById } from "../helpers/fetchApi";
+
+const GifScreen = () => {
+  const { id } = useParams();
+  const [gif, setGif] = useState({
+    datos: {},
+    loading: true,
+  });
+  console.log(id);
+
+  useEffect(() => {
+    getGifById(id).then((gif) => {
+      console.log(gif);
+
+      setGif({
+        datos: gif,
+        loading: false,
+      });
+    });
+  }, []);
+
+  return (
+    <div className="container">
+      <div className="row mt-5">
+        {gif.loading ? (
+          <div className="col text-center fw-bold text-white">
+            <h3>Cargando...</h3>
+          </div>
+        ) : (
+          <>
+            <div className="col-3">
+              <div className="d-flex text-white align-items-center ">
+                <img
+                  src="https://media2.giphy.com/avatars/BruceLeeFoundation/TEB3VIIFBsMB.jpg"
+                  width={50}
+                  alt="avatar"
+                />
+                <p className="fw-bold ms-2 mb-0">Bruce Lee Foundation</p>
+              </div>
+
+              <div className="texto_small mt-3 text-muted">
+                <p>
+                  We provide access for people to Bruce Lee’s practices and
+                  teachings to enhance personal growth and spread harmony.
+                </p>
+                <p className="fw-bold">Follow on:</p>
+                <div className="text-white text-start w-100 d-flex justify-content-start">
+                  <div>
+                    <i
+                      className="fa fa-facebook-square me-3"
+                      aria-hidden="true"
+                    ></i>
+                    <i className="fa fa-twitter me-3" aria-hidden="true"></i>
+                    <i className="fa fa-instagram me-3" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-6 text-center text-white">
+              <p>{gif.datos.title}</p>
+              <img src={gif.datos.images.original.url} alt="gif" />
+            </div>
+            <div className="col-3">
+              <div className="text-white d-flex align-items-center mb-3">
+                <i className="fa fa-heart-o fa-2x me-2" aria-hidden="true"></i>
+                <span className="fw-bold">Favorite</span>
+              </div>
+              <div className="text-white d-flex align-items-center mb-3">
+                <i className="fa fa-share fa-2x me-2" aria-hidden="true"></i>
+                <span className="fw-bold">Share</span>
+              </div>
+              <div className="text-white d-flex align-items-center mb-3">
+                <i className="fa fa-code fa-2x me-2" aria-hidden="true"></i>
+                <span className="fw-bold">Embed</span>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default GifScreen;

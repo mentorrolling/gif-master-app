@@ -6,7 +6,7 @@ export const getGifTrending = async () => {
     `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limite}`
   );
   const { data } = await resp.json();
-
+  console.log(data);
   return data;
 };
 
@@ -18,9 +18,10 @@ export const getGifById = async (id) => {
   return data;
 };
 
-export const getGifSearch = async (termino) => {
+export const getGifSearch = async (termino, cantidad) => {
+  // console.log(termino);
   const resp = await fetch(
-    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=${limite}`
+    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=${cantidad}`
   );
   const { data } = await resp.json();
   return data;

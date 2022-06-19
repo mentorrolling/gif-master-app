@@ -2,7 +2,7 @@ import React from "react";
 
 const InfoCategory = ({ datos }) => {
   return (
-    <div className="col-3 d-flex flex-column align-items-center animate__animated animate__fadeIn">
+    <div className="col-3  d-flex flex-column align-items-center animate__animated animate__fadeIn">
       <div className="img_col">
         <img src={datos.imagen} alt={datos.categoria} className="img_paginas" />
       </div>
