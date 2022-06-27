@@ -20,3 +20,15 @@ export const getGifTrending = async () => {
 //funcion que traiga un gif por su id
 
 //Funcion que me devuelva el resultado de una búsqueda
+export const getGifSearch = async (termino, cantidad) => {
+  try {
+    const resp = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=${cantidad}`
+    );
+    const data = await resp.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};

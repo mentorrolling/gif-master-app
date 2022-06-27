@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "../css/navbar.css";
 import ojos from "../assets/eyes.gif";
 
@@ -6,9 +7,9 @@ const NavbarApp = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark w-100">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="/">
           <i className="fa fa-file-o" aria-hidden="true"></i> GIF MASTER
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -26,23 +27,23 @@ const NavbarApp = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
+              <NavLink
                 className="nav-link"
                 aria-current="page"
                 to="/category/reactions"
               >
                 Reactions
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/category/entertainment">
                 Entertainment
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/category/sports">
                 Sports
-              </a>
+              </NavLink>
             </li>
           </ul>
           <ul className="navbar-nav">

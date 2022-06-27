@@ -24,38 +24,42 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <div className="w-100">
-            <img className="img_banner" src={banner} alt="banner" />
+    //fragment
+    <>
+      {/* <NavbarApp /> */}
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <div className="w-100">
+              <img className="img_banner" src={banner} alt="banner" />
+            </div>
           </div>
         </div>
+        <div className="row mt-5 ">
+          <div className="col">
+            <h3 className="text-white">
+              <i className="fa fa-line-chart" aria-hidden="true"></i> Trending
+            </h3>
+          </div>
+        </div>
+        {loading ? (
+          <div className="col-6 offset-3">
+            <h3 className="text-white text-center">Cargando...</h3>
+          </div>
+        ) : (
+          <div className="galeria">
+            {gifs.map((gif, index) => (
+              <div
+                className="mb-3 animate__animated animate__fadeIn "
+                key={index}
+              >
+                <img className="img_galeria" src={gif.url} alt={gif.title} />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      <div className="row mt-5 ">
-        <div className="col">
-          <h3 className="text-white">
-            <i className="fa fa-line-chart" aria-hidden="true"></i> Trending
-          </h3>
-        </div>
-      </div>
-      {loading ? (
-        <div className="col-6 offset-3">
-          <h3 className="text-white text-center">Cargando...</h3>
-        </div>
-      ) : (
-        <div className="galeria">
-          {gifs.map((gif, index) => (
-            <div
-              className="mb-3 animate__animated animate__fadeIn "
-              key={index}
-            >
-              <img className="img_galeria" src={gif.url} alt={gif.title} />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 
