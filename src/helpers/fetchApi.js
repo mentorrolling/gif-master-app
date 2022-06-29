@@ -25,7 +25,7 @@ export const getGifSearch = async (termino, cantidad) => {
     const resp = await fetch(
       `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${termino}&limit=${cantidad}`
     );
-    const data = await resp.json();
+    const { data } = await resp.json();
 
     return data;
   } catch (error) {
