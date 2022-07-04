@@ -1,9 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const InfoCategory = ({ id }) => {
   const [datos, setDatos] = useState({});
+
   useEffect(() => {
     switch (id) {
       case "entertainment":
