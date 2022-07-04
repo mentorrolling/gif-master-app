@@ -6,9 +6,9 @@ import GifCards from "../components/GifCards";
 
 const CategoryScreen = () => {
   const { id } = useParams();
-
+  const cantidadInicial = 18;
   // console.log(id);
-  const [cantidad, setCantidad] = useState(18);
+  const [cantidad, setCantidad] = useState(cantidadInicial);
   const [gifs, setGifs] = useState([]);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const CategoryScreen = () => {
   }, [id, cantidad]);
 
   useEffect(() => {
-    setCantidad(18);
+    setCantidad(cantidadInicial);
   }, [id]);
 
   const showMore = () => {
